@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PadresDeFamiliaApp.Views.LoginView"
+             xmlns:vm="clr-namespace:PadresDeFamiliaApp.ViewModel"
+             Title="LoginView">
+
+
+    <ContentPage.BindingContext>
+        <vm:LoginViewModel x:Name="vminiciar"></vm:LoginViewModel> 
+    </ContentPage.BindingContext>
+
+
+    <Grid BackgroundColor="#8a211d">
+
+        <Frame HorizontalOptions="End" Margin="0,150,0,-60" CornerRadius="50">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="130" ></RowDefinition>
+                    <RowDefinition Height="80" ></RowDefinition>
+                    <RowDefinition Height="50" ></RowDefinition>
+                    <RowDefinition Height="80"></RowDefinition>
+                    <RowDefinition Height="50" ></RowDefinition>
+                    <RowDefinition Height="120"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+
+                </Grid.RowDefinitions>
+
+                <Image Source="Resources/Images/logo.png"></Image>
+                <Label Grid.Row="1" HorizontalTextAlignment="Center" Margin="25" CharacterSpacing="8">USERNAME</Label>
+
+                <Entry Grid.Row="2" HorizontalTextAlignment="Center" Text="{Binding NombreUsuario}"></Entry>
+
+                <Label Grid.Row="3" HorizontalOptions="Center" Margin="25" CharacterSpacing="8">PASSWORD</Label>
+
+
+                <Entry Grid.Row="4" IsPassword="True" HorizontalTextAlignment="Center" Text="{Binding Password}"></Entry>
+
+                <Button Grid.Row="5" 
+                        Margin="40,60,40,0" 
+                        CornerRadius="30" 
+                        Background="#f8cb5f" 
+                        Text="LOGIN" 
+                        CharacterSpacing="5"
+                        Command="{Binding loginCommand}"></Button>
+
+            </Grid>
+
+        </Frame>
+
+
+
+
+
+
+    </Grid>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ContentPage>

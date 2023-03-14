@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PadresDeFamiliaApp.Views.PaginaInicialView"
+             xmlns:vm="clr-namespace:PadresDeFamiliaApp.ViewModel"
+             Title="PaginaInicialView"
+             x:Name="collection"
+             NavigationPage.HasNavigationBar="False">
+
+
+
+
+    <ContentPage.Resources>
+        <Style TargetType="Label" x:Key="label">
+            <Setter Property="HorizontalTextAlignment" Value="Start"></Setter>
+            <Setter Property="CharacterSpacing" Value="5"></Setter>
+            <Setter Property="Padding" Value="8"></Setter>
+            <Setter Property="FontSize" Value="12"></Setter>
+        </Style>
+    </ContentPage.Resources>
+
+
+    <ContentPage.Content>
+
+
+        <Grid BackgroundColor="#8a211d">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="130"></RowDefinition>
+                <RowDefinition Height="60"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Frame CornerRadius="0">
+                <Grid BackgroundColor="White" Margin="-20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="279"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Image Source="Resources/Images/logo.png" HorizontalOptions="Start"></Image>
+                    <Label Grid.Column="1"
+                       Margin="0,50,0,0"
+                       CharacterSpacing="5"
+                       FontAttributes="Bold"
+                       FontSize="20">LION ELEMENTARY SCHOOL</Label>
+
+                </Grid>
+            </Frame>
+            <Frame Grid.Row="1"
+               CornerRadius="0"
+               BackgroundColor="#f8cb5f"
+               BorderColor="#f8cb5f">
+
+
+
+                <Label HorizontalTextAlignment="Start"
+                   CharacterSpacing="5"
+                   FontSize="20">Alumnos</Label>
+
+            </Frame>
+
+            <StackLayout Grid.Row="2" BackgroundColor="Transparent" >
+
+
+                <CollectionView ItemsSource="{Binding AlumnoDTOs}">
+                    
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+
+                            <Grid BackgroundColor="Transparent" Margin="10" HeightRequest="130">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="90"></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Frame CornerRadius="0" BorderColor="Transparent">
+                                    <Grid  Margin="-20">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition Width="250"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Source="Resources/Images/estudiante.png" HeightRequest="90" BackgroundColor="#b17871"></Image>
+                                        <Label Grid.Column="1" Margin="25" CharacterSpacing="4" Text="{Binding Nombre}" ></Label>
+                                    </Grid>
+                                </Frame>
+                                <Frame Grid.Row="1" BorderColor="Transparent"  >
+                                    <Button BackgroundColor="#f8cb5f" 
+                                            HeightRequest="40"
+                                            WidthRequest="392" 
+                                            Text="VER CALIFICACIONES" 
+                                           CharacterSpacing="4"
+                                           TextColor="Black"
+                                           Command="{Binding Source={x:Reference collection}, Path=BindingContext.VerCalificacionesCommand}" CommandParameter="{Binding .}">
+                                        
+                                    </Button>
+                                </Frame>
+
+                            </Grid>
+
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </StackLayout>
+
+
+
+
+
+
+
+
+        </Grid>
+
+
+
+    </ContentPage.Content>
+    
+    
+
+
+</ContentPage>
